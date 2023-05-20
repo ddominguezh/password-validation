@@ -2,6 +2,8 @@ package com.codurance.katalyst;
 
 import java.util.regex.Pattern;
 
+import com.codurance.katalyst.rules.SomeUnderscorePasswordRule;
+
 public class Password {
 
     private String value;
@@ -15,7 +17,7 @@ public class Password {
         if(this.value.length() <= 8){
             return false;
         }
-        if(!this.value.contains("_")){
+        if(new SomeUnderscorePasswordRule().isWrong(value)){
             return false;
         }
         if(!Pattern.compile("\\d").matcher(this.value).find()){
