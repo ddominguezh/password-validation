@@ -94,4 +94,16 @@ public class PasswordTest {
             }
         }).isValid("8A1_ZKJ_9"));
     }
+
+    @Test
+    public void the_password_contains_length_greather_that_six_some_number_some_upper_and_some_lower_character(){
+        assertTrue(Password.create(new ArrayList<PasswordRule>(){
+            {
+                add(new MinLengthPasswordRule(6));
+                add(new SomeNumberPasswordRule());
+                add(new SomeUpperCharacterPasswordRule());
+                add(new SomeLowerCharacterPasswordRule());
+            }
+        }).isValid("8A1ZKj9"));
+    }
 }
