@@ -10,6 +10,9 @@ public class Password {
         return new Password(value);
     }
     public boolean isValid() {
+        if(this.value.length() <= 8){
+            return false;
+        }
         return true;
     }
     
