@@ -18,9 +18,8 @@ public class PasswordTest {
     }
 
     @Test
-    public void the_password_is_wrong_if_it_does_not_have_one_underscore(){
+    public void the_password_is_wrong_if_it_does_not_have_some_underscore(){
         assertFalse(Password.create("aA1OalJld").isValid());
     }
-
 
 }
