@@ -21,6 +21,9 @@ public class Password {
         if(!Pattern.compile("\\d").matcher(this.value).find()){
             return false;
         }
+        if(!Pattern.compile("[A-ZÑ]").matcher(this.value).find()){
+            return false;
+        }
         return true;
     }
     
