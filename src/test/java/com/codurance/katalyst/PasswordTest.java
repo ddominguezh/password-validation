@@ -22,4 +22,10 @@ public class PasswordTest {
         assertFalse(Password.create("aA1OalJld").isValid());
     }
 
+
+    @Test
+    public void the_password_is_wrong_if_it_does_not_have_some_number(){
+        assertFalse(Password.create("aAU_alJld").isValid());
+    }
+
 }
