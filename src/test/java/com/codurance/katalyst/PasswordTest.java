@@ -131,4 +131,20 @@ public class PasswordTest {
         assertTrue(password.isValid("AZKj_diLDiw_djeO_"));
         assertEquals(0, password.errors().size());
     }
+
+    @Test
+    public void password_is_not_valid_when_have_two_or_more_errors(){
+        Password password = Password.create(
+            new PasswordRulesBuilder()
+                .minLenght(6)
+                .someNumber()
+                .someUpperCharacter()
+                .someLowerCharacter()
+                .build()
+        );
+        assertFalse(password.isValid("jlkjlkdjslkj"));
+        assertEquals(2, password.errors().size());
+        assertEquals("Must contain some number", password.errors().get(0));
+        assertEquals("Must contain some upper character", password.errors().get(1));
+    }
 }
