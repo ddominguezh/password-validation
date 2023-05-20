@@ -18,104 +18,128 @@ public class PasswordTest {
     
     @Test
     public void password_valid(){
-        assertTrue(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("aA1_alJld"));
+        assertTrue(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("aA1_alJld")
+        );
     }
 
     @Test
     public void the_password_is_wrong_if_it_does_not_have_more_than_eight_characters(){
-        assertFalse(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("aA1_94sÑ"));
+        assertFalse(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("aA1_94sÑ")
+        );
     }
 
     @Test
     public void the_password_is_wrong_if_it_does_not_have_some_underscore(){
-        assertFalse(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("aA1OalJld"));
+        assertFalse(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("aA1OalJld")
+        );
     }
 
 
     @Test
     public void the_password_is_wrong_if_it_does_not_have_some_number(){
-        assertFalse(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("aAU_alJld"));
+        assertFalse(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("aAU_alJld")
+        );
     }
 
     @Test
     public void the_password_is_wrong_if_it_does_not_have_some_upper_character(){
-        assertFalse(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("aa1_al4ld"));
+        assertFalse(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("aa1_al4ld")
+        );
     }
 
     @Test
     public void the_password_is_wrong_if_it_does_not_have_some_lower_character(){
-        assertFalse(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(8));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("8A1_ZKJ_9"));
+        assertFalse(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(8)
+                    .someUnderscore()
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("8A1_ZKJ_9")
+        );
     }
 
     @Test
     public void the_password_contains_length_greather_that_six_some_number_some_upper_and_some_lower_character(){
-        assertTrue(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(6));
-                add(new SomeNumberPasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("8A1ZKj9"));
+        assertTrue(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(6)
+                    .someNumber()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("8A1ZKj9")
+        );
     }
 
     @Test
     public void the_password_contains_length_greather_that_sixteen_some_underscore_some_upper_and_some_lower_character(){
-        assertTrue(Password.create(new ArrayList<PasswordRule>(){
-            {
-                add(new MinLengthPasswordRule(16));
-                add(new SomeUnderscorePasswordRule());
-                add(new SomeUpperCharacterPasswordRule());
-                add(new SomeLowerCharacterPasswordRule());
-            }
-        }).isValid("AZKj_diLDiw_djeO_"));
+        assertTrue(
+            Password.create(
+                new PasswordRulesBuilder()
+                    .minLenght(16)
+                    .someUnderscore()
+                    .someUpperCharacter()
+                    .someLowerCharacter()
+                    .build()
+            )
+            .isValid("AZKj_diLDiw_djeO_")
+        );
     }
 }
