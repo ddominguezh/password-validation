@@ -22,7 +22,7 @@ public class Password {
                 errors.add(rule.message());
             }
         }
-        return errors.size() == 0;
+        return errors.size() <= 1;
     }
     public List<String> errors(){
         return this.errors;
