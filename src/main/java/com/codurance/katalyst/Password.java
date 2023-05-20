@@ -1,5 +1,7 @@
 package com.codurance.katalyst;
 
+import java.util.regex.Pattern;
+
 public class Password {
 
     private String value;
@@ -14,6 +16,9 @@ public class Password {
             return false;
         }
         if(!this.value.contains("_")){
+            return false;
+        }
+        if(!Pattern.compile("\\d").matcher(this.value).find()){
             return false;
         }
         return true;
