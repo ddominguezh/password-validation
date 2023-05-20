@@ -10,7 +10,7 @@ public class Password {
         return new Password(value);
     }
     public boolean isValid() {
-        throw new UnsupportedOperationException();
+        return true;
     }
     
 }
