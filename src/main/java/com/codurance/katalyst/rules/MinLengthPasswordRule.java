@@ -1,9 +1,9 @@
 package com.codurance.katalyst.rules;
 
-public class LengthPasswordRule implements PasswordRule {
+public class MinLengthPasswordRule implements PasswordRule {
 
     private int minLength;
-    public LengthPasswordRule(int minLength){
+    public MinLengthPasswordRule(int minLength){
         this.minLength = minLength;
     }
     @Override

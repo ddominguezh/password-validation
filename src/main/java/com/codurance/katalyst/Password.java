@@ -2,6 +2,7 @@ package com.codurance.katalyst;
 
 import java.util.regex.Pattern;
 
+import com.codurance.katalyst.rules.MinLengthPasswordRule;
 import com.codurance.katalyst.rules.SomeLowerCharacterPasswordRule;
 import com.codurance.katalyst.rules.SomeNumberPasswordRule;
 import com.codurance.katalyst.rules.SomeUnderscorePasswordRule;
@@ -17,7 +18,7 @@ public class Password {
         return new Password(value);
     }
     public boolean isValid() {
-        if(this.value.length() <= 8){
+        if(new MinLengthPasswordRule(8).isWrong(value)){
             return false;
         }
         if(new SomeUnderscorePasswordRule().isWrong(value)){
