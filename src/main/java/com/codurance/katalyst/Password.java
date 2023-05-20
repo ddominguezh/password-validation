@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import com.codurance.katalyst.rules.SomeLowerCharacterPasswordRule;
 import com.codurance.katalyst.rules.SomeNumberPasswordRule;
 import com.codurance.katalyst.rules.SomeUnderscorePasswordRule;
+import com.codurance.katalyst.rules.SomeUpperCharacterPasswordRule;
 
 public class Password {
 
@@ -25,7 +26,7 @@ public class Password {
         if(new SomeNumberPasswordRule().isWrong(value)){
             return false;
         }
-        if(!Pattern.compile("[A-ZÑ]").matcher(this.value).find()){
+        if(new SomeUpperCharacterPasswordRule().isWrong(value)){
             return false;
         }
         if(new SomeLowerCharacterPasswordRule().isWrong(value)){
