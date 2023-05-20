@@ -106,4 +106,16 @@ public class PasswordTest {
             }
         }).isValid("8A1ZKj9"));
     }
+
+    @Test
+    public void the_password_contains_length_greather_that_sixteen_some_underscore_some_upper_and_some_lower_character(){
+        assertTrue(Password.create(new ArrayList<PasswordRule>(){
+            {
+                add(new MinLengthPasswordRule(16));
+                add(new SomeUnderscorePasswordRule());
+                add(new SomeUpperCharacterPasswordRule());
+                add(new SomeLowerCharacterPasswordRule());
+            }
+        }).isValid("AZKj_diLDiw_djeO_"));
+    }
 }
