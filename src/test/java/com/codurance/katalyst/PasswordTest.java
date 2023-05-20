@@ -28,4 +28,8 @@ public class PasswordTest {
         assertFalse(Password.create("aAU_alJld").isValid());
     }
 
+    @Test
+    public void the_password_is_wrong_if_it_does_not_have_some_upper_character(){
+        assertFalse(Password.create("aa1_al4ld").isValid());
+    }
 }
