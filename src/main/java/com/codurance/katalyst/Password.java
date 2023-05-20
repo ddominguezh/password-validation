@@ -1,14 +1,8 @@
 package com.codurance.katalyst;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
-import com.codurance.katalyst.rules.MinLengthPasswordRule;
 import com.codurance.katalyst.rules.PasswordRule;
-import com.codurance.katalyst.rules.SomeLowerCharacterPasswordRule;
-import com.codurance.katalyst.rules.SomeNumberPasswordRule;
-import com.codurance.katalyst.rules.SomeUnderscorePasswordRule;
-import com.codurance.katalyst.rules.SomeUpperCharacterPasswordRule;
 
 public class Password {
 
