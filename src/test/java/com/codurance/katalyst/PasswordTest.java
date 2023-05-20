@@ -17,4 +17,10 @@ public class PasswordTest {
         assertFalse(Password.create("aA1_94sÑ").isValid());
     }
 
+    @Test
+    public void the_password_is_wrong_if_it_does_not_have_one_underscore(){
+        assertFalse(Password.create("aA1OalJld").isValid());
+    }
+
+
 }
