@@ -7,4 +7,9 @@ public class SomeUnderscorePasswordRule implements PasswordRule {
         return !password.contains("_");
     }
     
+    @Override
+    public String message() {
+        return "Must contain some underscore";
+    }
+
 }

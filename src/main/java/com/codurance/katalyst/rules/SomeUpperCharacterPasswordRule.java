@@ -9,4 +9,9 @@ public class SomeUpperCharacterPasswordRule implements PasswordRule {
         return !Pattern.compile("[A-ZÑ]").matcher(password).find();
     }
     
+    @Override
+    public String message() {
+        return "Must contain some upper character";
+    }
+
 }

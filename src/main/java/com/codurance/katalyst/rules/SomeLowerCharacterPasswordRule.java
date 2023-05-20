@@ -8,5 +8,10 @@ public class SomeLowerCharacterPasswordRule implements PasswordRule {
     public boolean isWrong(String password) {
         return !Pattern.compile("[a-zñ]").matcher(password).find();
     }
+
+    @Override
+    public String message() {
+        return "Must contain some lower character";
+    }
     
 }

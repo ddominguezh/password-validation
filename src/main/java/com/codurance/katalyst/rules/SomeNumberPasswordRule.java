@@ -9,4 +9,9 @@ public class SomeNumberPasswordRule implements PasswordRule {
         return !Pattern.compile("\\d").matcher(password).find();
     }
 
+    @Override
+    public String message() {
+        return "Must contain some number";
+    }
+
 }

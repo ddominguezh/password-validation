@@ -10,5 +10,9 @@ public class MinLengthPasswordRule implements PasswordRule {
     public boolean isWrong(String password) {
         return password.length() <= this.minLength;
     }
+    @Override
+    public String message() {
+        return String.format("Must be more than %d characters", this.minLength);
+    }
     
 }
