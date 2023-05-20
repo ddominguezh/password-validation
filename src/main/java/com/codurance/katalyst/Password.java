@@ -13,6 +13,9 @@ public class Password {
         if(this.value.length() <= 8){
             return false;
         }
+        if(!this.value.contains("_")){
+            return false;
+        }
         return true;
     }
     
