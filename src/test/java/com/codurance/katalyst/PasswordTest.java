@@ -3,16 +3,7 @@ package com.codurance.katalyst;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
-
-import com.codurance.katalyst.rules.MinLengthPasswordRule;
-import com.codurance.katalyst.rules.PasswordRule;
-import com.codurance.katalyst.rules.SomeLowerCharacterPasswordRule;
-import com.codurance.katalyst.rules.SomeNumberPasswordRule;
-import com.codurance.katalyst.rules.SomeUnderscorePasswordRule;
-import com.codurance.katalyst.rules.SomeUpperCharacterPasswordRule;
 
 public class PasswordTest {
     
